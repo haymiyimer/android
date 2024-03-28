@@ -86,7 +86,27 @@ fun Greeting() {
 
       }
        Text(text="text ", fontFamily = FontFamily.Serif, modifier = Modifier.background(Color.Magenta))
+       val img = LocalContext.current
+       Button(onClick = {
+           img.startActivity((Intent(img,ImageActivity::class.java)))
+       }) {
+           Text(text="img"  )
+
+       }
+       var scr = LocalContext.current
+       Button(onClick = {scr.startActivity((Intent(scr,ImageActivity::class.java))) })
+       {
+           Text(text = "Scroll")
+
+       }
+
+
+
+
+
+
    }
+
 }
 
 

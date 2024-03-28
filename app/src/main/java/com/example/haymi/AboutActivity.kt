@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -23,8 +24,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.currentCompositionLocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.haymi.ui.theme.HaymiTheme
@@ -64,13 +67,16 @@ fun About() {
 
 
         }
-        val text = AnnotatedString("Home")
+        val text = AnnotatedString("Home", spanStyle = SpanStyle(Color.Red))
         val h = LocalContext.current
      ClickableText(text = text , onClick = {
 
      h.startActivity((Intent(h,MainActivity::class.java)))
      })
-
+        val t = LocalContext.current
+        Text(text = "make a text clickable" ,
+         modifier= Modifier
+            .clickable {  t.startActivity((Intent(t,MainActivity::class.java))) })
 
 }
 
